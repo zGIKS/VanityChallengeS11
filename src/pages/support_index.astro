@@ -1,0 +1,176 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+  body {
+    background-color: #000000;
+    color: #ffffff;
+    font-family: 'Inter', Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+  }
+  .container {
+    width: 80%;
+    max-width: 800px;
+    padding-top: 50px; /* Ajustar padding-top para mover el contenido hacia abajo */
+  }
+  .faq-container, .ticket-container {
+    background-color: #232628;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+  }
+  .faq-container ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  .faq-container li {
+    padding: 10px;
+    cursor: pointer;
+    display: flex; /* Añadir display flex para alinear elementos */
+    align-items: flex-start; /* Alinear elementos verticalmente */
+    flex-wrap: wrap; /* Permite que el contenido se envuelva */
+  }
+  .faq-container li img {
+    margin-right: 10px; /* Añadir margen derecho a la imagen */
+    width: 0.7em; /* Reducir el tamaño de la imagen */
+    margin-top: 5px; /* Añadir margen superior a la imagen */
+    margin-bottom: 5px; /* Añadir margen inferior a la imagen */
+}
+
+  .faq-container li .question {
+    flex: 1; /* Ocupa todo el espacio disponible */
+    margin-top: 0; /* Eliminar margen superior */
+    margin-bottom: 5px; /* Añadir margen inferior */
+  }
+  .faq-container li div {
+    overflow: hidden; /* Ocultar el exceso de contenido */
+    max-height: 0; /* Ocultar el contenido por defecto */
+    transition: max-height 0.3s ease-out; /* Agregar transición suave */
+    width: 100%; /* Ajustar el ancho al 100% */
+  }
+  .faq-container li.active div {
+    max-height: 200px; /* Altura máxima del contenido */
+    margin-top: 10px; /* Espacio entre el texto y el borde inferior */
+  }
+  .ticket-container label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  .ticket-container input, .ticket-container textarea {
+    width: 100%;
+    padding: 1px;
+    border: none;
+    border-radius: 4px;
+    background-color: transparent; /* Fondo transparente */
+    color: #fff;
+  }
+  .ticket-container button {
+    background-color: #3A50FF;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  h2 {
+    font-size: 1.5em; /* Tamaño mayor para los títulos */
+  }
+  .question {
+    font-size: 1em; /* Tamaño del texto de las preguntas */
+  }
+
+  .product-page-link {
+  color: #3A50FF; /* Cambiar el color del texto del botón */
+  text-decoration: none; /* Quitar subrayado del texto */
+}
+
+  .answer {
+    font-size: 0.8em; /* Tamaño del texto del contenido */
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const faqItems = document.querySelectorAll('.faq-container li');
+    faqItems.forEach(item => {
+      item.addEventListener('click', () => {
+        const content = item.querySelector('div');
+        item.classList.toggle('active'); // Alternar clase activa en el elemento clicado
+      });
+    });
+  });
+</script>
+
+<Layout title="Vanity Support">
+  <div class="container">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-container">
+      <ul>
+        <li>
+          <img src="../imagenes/plus_supportindex.png" alt="Arrow Left"> <!-- Alinea la imagen a la izquierda del texto -->
+          <span class="question">Which Vanity product is for me?</span>
+          <div class="answer">Vanity has three different products for three different use cases. For a complete comparison and feature list, as well as each supported version of your operating system, check out our <a href="/products_index" class="product-page-link">product page</a>.</div>
+
+        </li>
+        <li>
+            <img src="../imagenes/plus_supportindex.png" alt="Arrow Left">
+            <span class="question">What operating system does Vanity support?</span>
+          <div class="answer">Vanity products are primarily developed for Windows 11 64-bit build 21H2. Compatibility with other Windows versions (e.g., Windows 10) is likely, but Unix-based and 32-bit systems like macOS are not currently supported.</div>
+        </li>
+        <li>
+            <img src="../imagenes/plus_supportindex.png" alt="Arrow Left">
+            <span class="question">Can I get access to beta versions of Vanity Products?</span>
+          <div class="answer">Access to our beta products is strictly private. Only trusted and loyal users will receive access to beta products. Currently, you cannot receive beta by asking, you must be chosen by our staff.</div>
+        </li>
+        <li>
+            <img src="../imagenes/plus_supportindex.png" alt="Arrow Left">
+            <span class="question">So I've purchased Vanity, now what?</span>
+          <div class="answer">Usually, our system processes payments instantly, and you'll be redirected to the panel upon completion. However, in some cases, it can take up to 24 hours. If your payment hasn't processed after 48 hours, please submit a support ticket with your transaction ID.</div>
+        </li>
+        <li>
+            <img src="../imagenes/plus_supportindex.png" alt="Arrow Left">
+            <span class="question">Can I share my account with my friends?</span>
+          <div class="answer">No. Sharing or selling your account will result in it being suspended. If you wish to purchase a subscription for your friend, you can do so by entering their username in the 'Gift' field when purchasing.</div>
+        </li>
+        <li>
+            <img src="../imagenes/plus_supportindex.png" alt="Arrow Left">
+            <span class="question">My Vanity isn't working, what do I do?</span>
+            <div class="answer">
+                If the client is not opening, or you are getting an error, please try the following:<br>
+                - Make sure you are using the latest version of the client.<br>
+                - Make sure you are using a <a href="/products_index" class="product-page-link" >supported version</a> for the product.<br>
+                - Disable any VPN software you are using temporarily to see if that resolves the issue.<br>
+                - If none of the above has resolved your issue, please <a href="/login" class="product-page-link" >create a ticket.</a>
+            </div>
+            
+            
+        </li>
+      </ul>
+    </div>
+
+    <h2></h2>
+    <div class="ticket-container">
+      <form>
+       
+        <label for="name">Username</label>
+        <textarea id="name" name="name" rows="4" required placeholder="Please enter your username here"></textarea>
+
+        <label for="email">Email</label>
+        <textarea id="email" name="email" rows="4" required placeholder="Please enter your email here"></textarea>
+
+        <label for="issue">Issue</label>
+        <textarea id="issue" name="issue" rows="4" required placeholder="Please enter a message here"></textarea>
+
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+</Layout>

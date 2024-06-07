@@ -1,0 +1,31 @@
+---
+interface Props {
+  title : string
+  description : string
+  user: {
+    name: string
+    role: string
+    avatar: string
+  }
+}
+
+const {description, title, user: {avatar, name, role} } = Astro.props
+
+---
+
+<section class="bg-[#232628] p-4 rounded-xl  flex flex-col gap-20 w-80">
+
+  <div>
+    <h1 class="text-xl xl:text-4xl font-bold mb-5 xl:mb-10">{title}</h1>
+    <p class="text-base xl:text-xl font-medium">{description}</p>
+  </div>
+
+  <div class="flex items-center gap-6">
+    <img src={avatar} alt={name} />
+    <div class="text-base">
+      <h2 class="font-medium">{name}</h2>
+      <p class="font-extralight">{role}</p>
+    </div>
+  </div>
+
+</section>

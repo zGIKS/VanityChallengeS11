@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HTML Form</title>
+    <style>
+        /* Importar la fuente Inter */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+        /* Estilos para el formulario */
+        body {
+            font-family: 'Inter', sans-serif; /* Utilizar la fuente Inter */
+            background-color: #000000; /* Fondo de la página en negro */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        form {
+            width: 100%;
+            max-width: 400px;
+            padding: 40px;
+            background-color: #000000; /* Fondo del formulario */
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h2 {
+            text-align: center;
+            color: #fff; /* Texto blanco */
+            margin-bottom: 30px;
+            font-size: 36px; /* Tamaño de letra para Vanity */
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #fff; /* Texto blanco */
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="password"],
+        input[type="submit"],
+        .login-button {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: none; /* Sin borde */
+            border-radius: 20px; /* Bordes más redondeados */
+            box-sizing: border-box;
+            font-size: 25px; /* Tamaño de letra más grande */
+            background-color: #0F0F10; /* Color de fondo de los campos de texto */
+            color: #F8F5F5; /* Color del texto en los campos de texto */
+            font-weight: bold; /* Texto en negrita */
+            text-align: center; /* Alinear el texto al centro */
+            cursor: pointer;
+            transition: background-color 0.3s;
+            line-height: 40px; /* Centrar verticalmente el texto */
+        }
+        input[type="submit"]:hover,
+        .login-button:hover {
+            background-color: #1c1c1e;
+        }
+        .forgot-password {
+            text-align: left; /* Alinear a la izquierda */
+            margin-top: 10px; /* Espacio superior */
+            margin-bottom: 20px; /* Espacio inferior */
+            font-size: 14px; /* Tamaño de letra más pequeño */
+            width: 100%;
+        }
+        .forgot-password a {
+            color: #FFFFFF; /* Texto blanco */
+            text-decoration: none;
+        }
+        .forgot-password a:hover {
+            text-decoration: underline;
+        }
+        .login-with {
+            text-align: center; /* Alinear al centro */
+            margin-top: 10px;
+            width: 100%; /* Asegurar que tome el 100% del ancho del formulario */
+        }
+        .login-with .login-button {
+            margin-bottom: 10px; /* Ajustar el espaciado entre botones */
+        }
+        .register {
+            text-align: center; /* Alinear al centro */
+            color: #FFFFFF;
+            margin-top: 20px;
+            font-size: 14px; /* Tamaño de letra más pequeño */
+        }
+        .register a {
+            color: #3A50FF;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        /* Alinear los campos de texto a la izquierda */
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="password"] {
+            text-align: left;
+        }
+        /* Estilo específico para los botones de Login with Gmail y Login with Yahoo */
+        .login-button.gmail,
+        .login-button.yahoo {
+            background-color: #0F0F10; /* Color de fondo específico */
+            color: #F8F5F5; /* Color del texto específico */
+        }
+        .gmail-text,
+        .yahoo-text {
+            color: #3A50FF; /* Color específico para el texto de Gmail y Yahoo */
+        }
+        /* Estilos para la imagen */
+        .logo-container {
+            text-align: center; /* Alinear la imagen al centro */
+            margin-bottom: 20px; /* Espacio entre la imagen y el título */
+        }
+        .logo-container img {
+            width: 150px; /* Ancho de la imagen */
+            height: auto; /* Altura automática para mantener la proporción */
+        }
+        /* Estilos para la imagen arrow-left2 */
+        .arrow-left-container {
+            position: absolute; /* Posición absoluta */
+            top: 20px; /* Distancia desde arriba */
+            left: 20px; /* Distancia desde la izquierda */
+        }
+        .arrow-left-container a {
+            display: block;
+        }
+        .arrow-left-container img {
+            width: 50px; /* Ancho de la imagen */
+            height: auto; /* Altura automática para mantener la proporción */
+        }
+
+        /* Estilos responsivos */
+        @media (max-width: 600px) {
+            form {
+                width: 90%;
+                padding: 20px;
+            }
+            h2 {
+                font-size: 28px;
+            }
+            input[type="text"],
+            input[type="email"],
+            input[type="tel"],
+            input[type="password"],
+            input[type="submit"],
+            .login-button {
+                font-size: 20px;
+                padding: 10px;
+            }
+            .forgot-password,
+            .register {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="arrow-left-container">
+    <a href="javascript:history.back()">
+        <img src="../imagenes/arrow-left2.svg" alt="Arrow Left">
+    </a>
+</div>
+
+<form action="/action_page.php">
+    <div class="logo-container">
+        <img src="../imagenes/logo-colored.svg" alt="Logo">
+    </div>
+
+    <h2>Vanity</h2>
+
+    <input type="text" id="emailOrUsername" name="emailOrUsername" placeholder="Email or Username" required>
+
+    <input type="password" id="password" name="password" placeholder="Password" required>
+
+    <div class="forgot-password">
+        <a href="#">Forgot password?</a>
+    </div>
+
+    <div class="login-with">
+        <button type="button" class="login-button">
+            Login
+        </button>
+        <button type="button" class="login-button gmail">
+            <span class="login-text">Login with </span>
+            <span class="gmail-text">Gmail</span>
+        </button>
+        <button type="button" class="login-button yahoo">
+            <span class="login-text">Login with </span>
+            <span class="yahoo-text">Yahoo</span>
+        </button>
+    </div>
+
+    <div class="register">
+        Don't have an account? <a href="#">Register</a>
+    </div>
+</form>
+
+</body>
+</html>

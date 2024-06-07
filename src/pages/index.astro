@@ -1,0 +1,35 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.tsx";
+import Hero from "../components/Hero.astro";
+import Brands from "../components/Brands.astro";
+import WhyChooseUs from "../components/WhyChooseUs.astro";
+
+
+
+
+---
+
+<Layout title="Vanity">
+    <main class="flex flex-col h-[1500px]">
+
+        <Hero />
+
+        <Brands />
+
+				<WhyChooseUs />
+
+				<footer class="w-full mx-auto mt-20">
+					<div class="max-w-3xl mx-auto px-4 flex items-center justify-between text-sm py-16">
+
+						<p>@ Vanity 2024. All Rights Reserved.</p>
+
+						<div class="text-[#4254E3] flex gap-10">
+							<p>Terms of service</p>
+							<p>Privacy Policy</p>
+						</div>
+
+					</div>
+				</footer>
+    </main>
+</Layout>
