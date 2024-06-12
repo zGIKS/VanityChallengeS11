@@ -1,9 +1,41 @@
 ---
 import Layout from "../layouts/Layout.astro";
+const BRANDS = [
+    {
+        href: "/outlook.png",
+    },
+    {
+        href: "/gmail.png",
+    },
+    {
+        href: "/yahoo.png",
+    },
+];
 ---
 
 <Layout title="Vanity">
-  <br><br><h2 style="color: white; text-align: center; font-size: 36px; font-weight: bold;">Features</h2>
+  <br><br><h2 style="font-size: 65px; text-align: center;"><strong>You can always be safer</strong></h2>
+  <section class="w-full mx-auto px-4 py-8 mt-20">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col items-center">
+        <h3 class="text-[#AFA9A9] mx-auto text-base xl:text-2xl">
+            Trusted by <span class="text-white font-bold"
+                >thousands</span
+            > of users and companies
+        </h3>
+
+        <div class="mt-16">
+            <h4 class="text-[#afa9a9]">Partnered up by:</h4>
+            <ul class="flex items-center justify-center gap-10 flex-col md:flex-row">
+              {BRANDS.map((brand) => (
+                <li>
+                  <img src={brand.href} alt="brand" />
+                </li>
+              ))}
+            </ul>
+        </div>
+    </div>
+  </section>
+  
   <div class="products-container">
     <div class="products">
       <div class="product">
@@ -16,6 +48,7 @@ import Layout from "../layouts/Layout.astro";
         </div>
         <button>BUY NOW</button>
       </div>
+
       <div class="product pymes">
         <h2>Premium</h2>
         <p class="price">$49.90/<span class="small-text">month</span></p>
@@ -26,7 +59,9 @@ import Layout from "../layouts/Layout.astro";
         </div>
         <button>BUY NOW</button>
       </div>
+
       <div class="product business">
+        <div class="popular-tag">Popular</div>
         <h2 class="large-title">Corporational</h2>
         <p class="price">$449.90/<span class="small-text">month</span></p>
         <div class="details">
@@ -52,16 +87,23 @@ import Layout from "../layouts/Layout.astro";
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  height: 100vh;
   padding-top: 5%;
-  flex-wrap: wrap;
+  overflow-x: hidden; /* Cambia esta línea */
+  overflow-y: auto; /* Asegúrate de que la barra de desplazamiento vertical esté habilitada */
 }
 
 .products {
   display: flex;
   justify-content: center;
   gap: 20px;
-  flex-wrap: wrap;
+}
+
+/* Add this media query */
+@media (max-width: 900px) {
+  .products {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .details p::before {
@@ -73,6 +115,7 @@ import Layout from "../layouts/Layout.astro";
 }
 
 .product {
+  position: relative;
   background-color: #232628;
   border: 1px solid #FFFFFF;
   padding: 40px;
@@ -82,7 +125,6 @@ import Layout from "../layouts/Layout.astro";
   border-radius: 15px;
   min-width: 300px;
   min-height: 200;
-  width: 100%;
 }
 
 .product h2 {
@@ -124,15 +166,17 @@ import Layout from "../layouts/Layout.astro";
   text-align: left;
 }
 
-@media (min-width: 600px) {
-  .product {
-    width: 50%;
-  }
+.popular-tag {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #5C1AE8; 
+  color: #FFFFFF;
+  padding: 5px 10px;
+  font-size: 14px;
+  font-weight: bold;
+  transform: translate(50%, -50%);
+  border-radius: 0 0 0 5px;
 }
 
-@media (min-width: 900px) {
-  .product {
-    width: 33.33%;
-  }
-}
 </style>

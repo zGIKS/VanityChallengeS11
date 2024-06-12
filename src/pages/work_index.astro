@@ -2,7 +2,78 @@
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="Word">
-<h1>sto es work</h1>
+<style>
+  .content {
+    display: flex;
+    justify-content: center; /* Centra los elementos, reduciendo el espacio en medio */
+    align-items: center; /* Alinea verticalmente */
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan si no hay suficiente espacio */
+  }
+  
+  .centered-content {
+    margin: 180px; /* Ajusta el margen para controlar el espacio alrededor de los elementos */
+    max-width: 600px; /* Ajusta este valor según el ancho deseado */
+    text-align: center; /* Centra el texto dentro del div */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 
+  .container:first-of-type {
+    margin-top: 40px; /* Espacio adicional solo en el primer contenedor */
+  }
+  .container {
+    background-color: #232628;
+    padding: 30px;
+    margin: 50px; /* Ajusta el margen para controlar el espacio alrededor de los elementos */
+    color: white; /* Para que el texto sea legible */
+    border-radius: 10px; /* Opcional, para bordes redondeados */
+    width: 550px; /* Ancho fijo */
+  }
+  .container h2 {
+    margin: 0; /* Espacio entre el título y el texto */
+    font-size: 1.25em; /* Tamaño del título */
+  }
+  .container p {
+    margin: 0px; /* Sin margen adicional */
+  }
+  h1 {
+    margin-top: 30px; /* Espacio adicional en el primer contenedor */
+    text-align: center;
+    flex: 1;
+    white-space: nowrap; /* Asegura que el texto esté en una sola línea */
+  }
+  /* Estilo actualizado para justificar el texto del párrafo */
+  .centered-content p {
+    text-align: justify;
+    margin-bottom: 100px;
+    font-size: 20px;
+    line-height: 1.5;
+  }
+</style>
+
+<Layout title="Word">
+  <div class="content">
+    <div>
+      <div class="container">
+        <h2 style="font-weight:bold; font-size:40px;">Individuals</h2>
+        <p style="font-size:20px;">Tailored email protection for personal use, ensuring privacy and security for everyday communication.</p>
+      </div>
+      
+      <div class="container">
+        <h2 style="font-weight:bold; font-size:40px;">Businesses</h2>
+        <p style="font-size:20px;">Comprehensive email solutions designed to enhance productivity and safeguard sensitive business information.</p>
+      </div>
+      
+      <div class="container">
+        <h2 style="font-weight:bold; font-size:40px;">Enterprises</h2>
+        <p style="font-size:20px;"> Advanced, scalable email security for large organizations with complex IT environments, providing robust protection and seamless integration.</p>
+      </div>
+    </div>
+    <div class="centered-content">
+      <h1 style="font-weight:bold; font-size:80px;">Vanity is for people</h1>
+      <p style="font-size:25px;"> <br>We want to help people in their online experience, protect and ensure internet security. We thrive in the world of user convenience and satisfaction. Vanity seeks to promote our emailing services across 3 main categories: Individuals, Businesses, and Enterprises.</p>
+      <img src="/logo.svg" alt="Logo" style="width: 100px; height: auto; display: block; margin-left: 20px; margin-top: -50px; position: relative;">    </div>
+  </div>
 </Layout>
