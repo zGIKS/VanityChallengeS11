@@ -1,0 +1,58 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Purchase">
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 20px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        .container img {
+            max-width: 100%;
+            max-height: 60vh; /* Mantén un margen para que el texto se vea bien */
+            object-fit: cover;
+            border-radius: 10px; /* Añade bordes redondeados para mejorar la estética */
+        }
+
+        .container p {
+            font-weight: bold;
+            font-size: 2rem;
+            margin-top: 20px;
+        }
+
+        /* Ajustes para pantallas pequeñas */
+        @media (max-width: 600px) {
+            .container img {
+                max-height: 50vh; /* Ajusta la altura máxima de la imagen */
+            }
+
+            .container p {
+                font-size: 1.5rem; /* Reduce el tamaño del texto en pantallas pequeñas */
+            }
+        }
+
+        /* Ajustes para pantallas muy pequeñas */
+        @media (max-width: 400px) {
+            .container img {
+                max-height: 40vh; /* Ajusta aún más la altura máxima de la imagen */
+            }
+
+            .container p {
+                font-size: 1.2rem; /* Ajusta el tamaño del texto para pantallas muy pequeñas */
+            }
+        }
+    </style>
+
+    <div class="container">
+        <img src="PurchaseTY.jpg" alt="Thank You Image"/>
+        <p>Thank you for your purchase!</p>
+    </div>
+</Layout>

@@ -3,77 +3,125 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <style>
-  .content {
-    display: flex;
-    justify-content: center; /* Centra los elementos, reduciendo el espacio en medio */
-    align-items: center; /* Alinea verticalmente */
-    flex-wrap: wrap; /* Permite que los elementos se envuelvan si no hay suficiente espacio */
-  }
-  
-  .centered-content {
-    margin: 180px; /* Ajusta el margen para controlar el espacio alrededor de los elementos */
-    max-width: 600px; /* Ajusta este valor según el ancho deseado */
-    text-align: center; /* Centra el texto dentro del div */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+  .title-container {
+    text-align: center; /* Centra el texto horizontalmente */
+    width: 100%; /* Asegura que el contenedor ocupe todo el ancho */
+    margin-top: 5vh; /* Usa unidades relativas para mantener la proporción */
   }
 
-  .container:first-of-type {
-    margin-top: 40px; /* Espacio adicional solo en el primer contenedor */
-  }
   .container {
-    background-color: #232628;
-    padding: 30px;
-    margin: 50px; /* Ajusta el margen para controlar el espacio alrededor de los elementos */
-    color: white; /* Para que el texto sea legible */
-    border-radius: 10px; /* Opcional, para bordes redondeados */
-    width: 550px; /* Ancho fijo */
+    display: flex; /* Usa Flexbox */
+    flex-direction: row; /* Alinea los elementos horizontalmente */
+    align-items: center; /* Centra los elementos verticalmente */
+    justify-content: center; /* Centra los elementos horizontalmente */
+    text-align: center; /* Asegura que el texto dentro de los elementos esté centrado */
+    width: 100%; /* Usa todo el ancho disponible */
+    height: 100vh; /* Usa todo el alto de la ventana del navegador */
+    gap: 2vw; /* Añade un espacio entre las imágenes y el texto usando unidades relativas */
   }
-  .container h2 {
-    margin: 0; /* Espacio entre el título y el texto */
-    font-size: 1.25em; /* Tamaño del título */
+
+  .images {
+    display: flex;
+    flex-direction: column; /* Apila las imágenes verticalmente */
+    align-items: center; /* Centra las imágenes horizontalmente */
+    gap: 2vh; /* Añade un espacio entre las imágenes usando unidades relativas */
+    margin-left: 5vw; /* Usa unidades relativas para mantener la proporción */
   }
-  .container p {
-    margin: 0px; /* Sin margen adicional */
+
+  .images img:first-child {
+    margin-top: -25vh; /* Reduce el espacio en la parte superior de la primera imagen usando unidades relativas */
   }
+
+  .title-side {
+    margin-top: -25vh; /* Usa unidades relativas para mantener la proporción */
+    display: flex;
+    flex-direction: column; /* Cambio clave para apilar verticalmente */
+    justify-content: center; /* Centra el texto verticalmente */
+    text-align: center; /* Alinea el texto al centro */
+    width: 45vw; /* Ajusta el ancho al 45% del ancho de la ventana del navegador */
+    margin-left: auto; /* Alinea el bloque al centro-derecha del contenedor padre */
+  }
+
   h1 {
-    margin-top: 30px; /* Espacio adicional en el primer contenedor */
-    text-align: center;
-    flex: 1;
-    white-space: nowrap; /* Asegura que el texto esté en una sola línea */
+    font-size: 2.5vw; /* Ajusta el tamaño del texto usando unidades relativas */
   }
-  /* Estilo actualizado para justificar el texto del párrafo */
-  .centered-content p {
+
+  .title-side p:first-of-type {
+    font-size: 4vw; /* Ajusta el tamaño del texto usando unidades relativas */
+    font-weight: bold;
+    text-align: left;
+  }
+
+  .title-side p:last-of-type {
+    font-size: 2vw; /* Ajusta el tamaño del texto usando unidades relativas */
+    margin-top: 2vh;
     text-align: justify;
-    margin-bottom: 100px;
-    font-size: 20px;
-    line-height: 1.5;
+  }
+
+  /* Media queries para ajustar el diseño en diferentes resoluciones y niveles de zoom */
+  @media (max-width: 1200px) {
+    .images {
+      margin-left: 2vw;
+    }
+
+    .images img:first-child {
+      margin-top: -20vh;
+    }
+
+    .title-side {
+      margin-top: -20vh;
+      width: 50vw;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column; /* Cambia la dirección de los elementos a columna */
+      height: auto; /* Ajusta la altura automáticamente */
+    }
+
+    .images {
+      margin-left: 0;
+    }
+
+    .images img:first-child {
+      margin-top: 0;
+    }
+
+    .title-side {
+      margin-top: 0;
+      width: 90vw;
+      margin-left: 0;
+    }
+
+    h1 {
+      font-size: 4vw;
+    }
+
+    .title-side p:first-of-type {
+      font-size: 6vw;
+    }
+
+    .title-side p:last-of-type {
+      font-size: 3vw;
+    }
   }
 </style>
 
 <Layout title="Word">
-  <div class="content">
-    <div>
-      <div class="container">
-        <h2 style="font-weight:bold; font-size:40px;">Individuals</h2>
-        <p style="font-size:20px;">Tailored email protection for personal use, ensuring privacy and security for everyday communication.</p>
-      </div>
-      
-      <div class="container">
-        <h2 style="font-weight:bold; font-size:40px;">Businesses</h2>
-        <p style="font-size:20px;">Comprehensive email solutions designed to enhance productivity and safeguard sensitive business information.</p>
-      </div>
-      
-      <div class="container">
-        <h2 style="font-weight:bold; font-size:40px;">Enterprises</h2>
-        <p style="font-size:20px;"> Advanced, scalable email security for large organizations with complex IT environments, providing robust protection and seamless integration.</p>
-      </div>
+  <div class="title-container">
+    <h1>Security, privacy and commodity <strong>for you</strong></h1>
+  </div>
+  <div class="container">
+    <div class="images">
+      <img src="../Group 15.png">
+      <img src="../Group 16.png">
     </div>
-    <div class="centered-content">
-      <h1 style="font-weight:bold; font-size:80px;">Vanity is for people</h1>
-      <p style="font-size:25px;"> <br>We want to help people in their online experience, protect and ensure internet security. We thrive in the world of user convenience and satisfaction. Vanity seeks to promote our emailing services across 3 main categories: Individuals, Businesses, and Enterprises.</p>
-      <img src="/logo.svg" alt="Logo" style="width: 100px; height: auto; display: block; margin-left: 20px; margin-top: -50px; position: relative;">    </div>
+    <div class="title-side">
+      <p>Vanity will protect your online presence </p>
+      <p><br>Visualize emails that contain phishing attempts and spam content. Vanity protects and informs you over any email security available or integrated in the market</p> <!-- Texto más pequeño y separado debajo -->
+    </div>
   </div>
 </Layout>
